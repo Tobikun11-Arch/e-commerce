@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import OrderTable from './OrderTable';
+import React, { useState } from "react";
+import OrderTable from "./OrderTable";
 
 const OrdersPage = () => {
   const data7Days = {
     revenue: "₱45,200",
     totalOrders: 124,
     ordersList: [
-      { id: "ORD-001", product: "Wireless Earbuds", customer: "Juan Dela Cruz", total: "₱1,200", status: "Shipped" },
+      { id: "ORD-001", product: "Earbuds Wireless ", customer: "Juan Dela Cruz", total: "₱1,200", status: "Shipped" },
       { id: "ORD-002", product: "Mechanical Keyboard", customer: "Maria Clara", total: "₱3,500", status: "Processing" },
       { id: "ORD-003", product: "Gaming Mouse", customer: "Jose Rizal", total: "₱1,800", status: "Delivered" }
     ]
@@ -67,6 +67,4 @@ const OrdersPage = () => {
       <OrderTable orders={currentData.ordersList} />
     </div>
   );
-};
-
-export default OrdersPage;
+}
