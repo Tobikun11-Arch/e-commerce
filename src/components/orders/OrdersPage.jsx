@@ -1,34 +1,70 @@
 import React, { useState } from "react";
 import OrderTable from "./OrderTable";
 
-const dummyOrders = [
-  { productName: "Car Vacuum Cleaner", quantity: 8, amount: 211.13, dateTime: "February 06, 2025 at 1:51 PM" },
-  { productName: "Slim Fit Men's Blazer", quantity: 21, amount: 2302.65, dateTime: "February 06, 2025 at 2:10 PM" },
-  { productName: "Smartphone Stand With Wireless Charger", quantity: 5, amount: 153.0, dateTime: "February 07, 2025 at 9:47 AM" },
-  { productName: "Wireless Bluetooth Headphones", quantity: 22, amount: 1682.81, dateTime: "February 07, 2025 at 12:36 PM" },
-  { productName: "Organic Face Serum", quantity: 4, amount: 165.60, dateTime: "February 07, 2025 at 12:36 PM" },
-  { productName: "Organic Face Serum", quantity: 1, amount: 41.40, dateTime: "February 07, 2025 at 3:06 PM" },
-  { productName: "Smartphone Stand With Wireless Charger", quantity: 1, amount: 34.0, dateTime: "February 09, 2025 at 5:19 PM" },
-];
-
-export default function OrdersPage() {
-  const [searchTerm, setSearchTerm] = useState("");
-
-  const handleViewDetails = (order) => {
-    alert(`Viewing details for: ${order.productName}`);
-    console.log(order);
+const OrdersPage = () => {
+  const data7Days = {
+    revenue: "₱45,200",
+    totalOrders: 124,
+    ordersList: [
+      { id: "ORD-001", product: "Earbuds Wireless ", customer: "Juan Dela Cruz", total: "₱1,200", status: "Shipped" },
+      { id: "ORD-002", product: "Mechanical Keyboard", customer: "Maria Clara", total: "₱3,500", status: "Processing" },
+      { id: "ORD-003", product: "Gaming Mouse", customer: "Jose Rizal", total: "₱1,800", status: "Delivered" }
+    ]
   };
 
-  return (
-    <div className="min-h-screen bg-gray-50 p-6">
-      <h2 className="text-xl font-bold text-gray-800 mb-6">Orders Content</h2>
+  const data30Days = {
+    revenue: "₱180,500",
+    totalOrders: 512,
+    ordersList: [
+      { id: "ORD-099", product: "Smart TV  50-inch", customer: "Andres Bonifacio", total: "₱25,000", status: "Delivered" },
+      { id: "ORD-100", product: "Laptop Stand", customer: "Emilio Aguinaldo", total: "₱850", status: "Cancelled" },
 
-      <OrderTable
-        orders={dummyOrders}
-        onView={handleViewDetails}
-        searchTerm={searchTerm}
-        onSearch={setSearchTerm}
-      />
+    ]
+  };
+
+  const [timeRange, setTimeRange] = useState('7days');
+  
+  const handleToggleData = (range) => {
+    setTimeRange(range);
+    console.log(`UI Update: Switched dashboard view to ${range}`);
+  };
+
+  const currentData = timeRange === '7days' ? data7Days : data30Days;
+
+  return (
+    <div style={{ padding: '20px', fontFamily: 'Inter, Arial, sans-serif', backgroundColor: '#f4f7f6', minHeight: '100vh' }}>
+      <h1 style={{ color: '#333' }}>Store Overview</h1>
+      <p style={{ color: '#666', marginTop: '-10px' }}>E-Commerce UI Blueprint</p>
+
+   
+      <div style={{ marginBottom: '20px' }}>
+        <button 
+          onClick={() => handleToggleData('7days')} 
+          style={{ padding: '8px 16px', marginRight: '10px', backgroundColor: timeRange === '7days' ? '#007bff' : '#ccc', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}
+        >
+          Last 7 Days
+        </button>
+        <button 
+          onClick={() => handleToggleData('30days')} 
+          style={{ padding: '8px 16px', backgroundColor: timeRange === '30days' ? '#007bff' : '#ccc', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}
+        >
+          Last 30 Days
+        </button>
+      </div>
+
+      
+      <div style={{ display: 'flex', gap: '20px', marginBottom: '30px' }}>
+        <div style={{ padding: '20px', backgroundColor: 'white', borderRadius: '8px', boxShadow: '0 2px 4px rgba(0,0,0,0.1)', flex: 1 }}>
+          <h3 style={{ margin: 0, color: '#888', fontSize: '14px' }}>Total Revenue</h3>
+          <p style={{ fontSize: '24px', fontWeight: 'bold', margin: '10px 0 0 0' }}>{currentData.revenue}</p>
+        </div>
+        <div style={{ padding: '20px', backgroundColor: 'white', borderRadius: '8px', boxShadow: '0 2px 4px rgba(0,0,0,0.1)', flex: 1 }}>
+          <h3 style={{ margin: 0, color: '#888', fontSize: '14px' }}>Total Orders</h3>
+          <p style={{ fontSize: '24px', fontWeight: 'bold', margin: '10px 0 0 0' }}>{currentData.totalOrders}</p>
+        </div>
+      </div>
+
+      <OrderTable orders={currentData.ordersList} />
     </div>
   );
 }
