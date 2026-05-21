@@ -1,8 +1,6 @@
-import { useState } from "react";
 import logo from "../../assets/source-apparel.png";
 
 export default function Header() {
-const [messages, setMessages] = useState([]);
   return (
     <header className="flex items-center justify-between h-20 px-4 bg-white shadow">
       <img src={logo} alt="Source Apparel logo" className="w-56 h-auto mt-3" />
@@ -31,7 +29,7 @@ const [messages, setMessages] = useState([]);
           </svg>
         </button>
 
-        <div className="flex items-center gap-3 rounded-2xl bg-white px-3 py-2 shadow">
+        <div className="flex items-center gap-3 rounded-2xl bg-white px-3 py-2 ">
           <div>
             <p className="text-sm font-semibold text-slate-900">Nung Kodak</p>
             <p className="text-xs text-black">Seller</p>
