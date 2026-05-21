@@ -1,6 +1,7 @@
 import { useState } from "react"
 import Header from "./components/layout/Header"
 import Sidebar from "./components/layout/Sidebar"
+import DashboardPage from "./components/dashboard/DashboardPage"
 import ProductsPage from "./components/products/ProductsPage"
 import SettingsPage from "./components/settings/SettingsPage"
 import ProductTable from "./components/products/ProductTable"
@@ -17,7 +18,7 @@ export default function App() {
       <div className="pt-20 flex">
         <Sidebar activeItem={activeItem} setActiveItem={setActiveItem} />
         <main className="flex-1 p-6">
-          {activeItem === "Dashboard" && <div>Dashboard Content</div>}
+          {activeItem === "Dashboard" && <DashboardPage />}
           {activeItem === "Products" && <ProductsPage />}
           {activeItem === "Orders" && <div>Orders Content</div>}
           {activeItem === "Settings" && <SettingsPage />}
