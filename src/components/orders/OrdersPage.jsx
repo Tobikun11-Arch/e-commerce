@@ -1,70 +1,65 @@
-import React, { useState } from "react";
-import OrderTable from "./OrderTable";
+import React from "react";
 
-const OrdersPage = () => {
-  const data7Days = {
-    revenue: "₱45,200",
-    totalOrders: 124,
-    ordersList: [
-      { id: "ORD-001", product: "Earbuds Wireless ", customer: "Juan Dela Cruz", total: "₱1,200", status: "Shipped" },
-      { id: "ORD-002", product: "Mechanical Keyboard", customer: "Maria Clara", total: "₱3,500", status: "Processing" },
-      { id: "ORD-003", product: "Gaming Mouse", customer: "Jose Rizal", total: "₱1,800", status: "Delivered" }
-    ]
-  };
-
-  const data30Days = {
-    revenue: "₱180,500",
-    totalOrders: 512,
-    ordersList: [
-      { id: "ORD-099", product: "Smart TV  50-inch", customer: "Andres Bonifacio", total: "₱25,000", status: "Delivered" },
-      { id: "ORD-100", product: "Laptop Stand", customer: "Emilio Aguinaldo", total: "₱850", status: "Cancelled" },
-
-    ]
-  };
-
-  const [timeRange, setTimeRange] = useState('7days');
-  
-  const handleToggleData = (range) => {
-    setTimeRange(range);
-    console.log(`UI Update: Switched dashboard view to ${range}`);
-  };
-
-  const currentData = timeRange === '7days' ? data7Days : data30Days;
+export default function OrderTable({ orders, onView, searchTerm, onSearch }) {
+  const filteredOrders = orders.filter(order =>
+    order.productName.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
-    <div style={{ padding: '20px', fontFamily: 'Inter, Arial, sans-serif', backgroundColor: '#f4f7f6', minHeight: '100vh' }}>
-      <h1 style={{ color: '#333' }}>Store Overview</h1>
-      <p style={{ color: '#666', marginTop: '-10px' }}>E-Commerce UI Blueprint</p>
+    <div>
+      <input
+        type="text"
+        placeholder="Filter Product Name..."
+        value={searchTerm}
+        onChange={(e) => onSearch(e.target.value)}
+        className="border px-3 py-2 rounded w-full mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
 
-   
-      <div style={{ marginBottom: '20px' }}>
-        <button 
-          onClick={() => handleToggleData('7days')} 
-          style={{ padding: '8px 16px', marginRight: '10px', backgroundColor: timeRange === '7days' ? '#007bff' : '#ccc', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}
-        >
-          Last 7 Days
-        </button>
-        <button 
-          onClick={() => handleToggleData('30days')} 
-          style={{ padding: '8px 16px', backgroundColor: timeRange === '30days' ? '#007bff' : '#ccc', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}
-        >
-          Last 30 Days
-        </button>
-      </div>
-
-      
-      <div style={{ display: 'flex', gap: '20px', marginBottom: '30px' }}>
-        <div style={{ padding: '20px', backgroundColor: 'white', borderRadius: '8px', boxShadow: '0 2px 4px rgba(0,0,0,0.1)', flex: 1 }}>
-          <h3 style={{ margin: 0, color: '#888', fontSize: '14px' }}>Total Revenue</h3>
-          <p style={{ fontSize: '24px', fontWeight: 'bold', margin: '10px 0 0 0' }}>{currentData.revenue}</p>
+      {filteredOrders.length === 0 ? (
+        <p className="text-gray-500">No matching orders found.</p>
+      ) : (
+        <div className="overflow-x-auto">
+          <table className="min-w-full border border-gray-200 rounded-lg shadow-sm">
+            <thead className="bg-gray-100">
+              <tr>
+                <th className="px-4 py-2 text-sm font-semibold text-gray-700 text-left">Product</th>
+                <th className="px-4 py-2 text-sm font-semibold text-gray-700 text-center">Quantity</th>
+                <th className="px-4 py-2 text-sm font-semibold text-gray-700 text-center">Amount</th>
+                <th className="px-4 py-2 text-sm font-semibold text-gray-700 text-center">Order Date & Time</th>
+                <th className="px-4 py-2 text-sm font-semibold text-gray-700 text-center">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {filteredOrders.map((order, index) => (
+                <tr key={index} className="border-t hover:bg-gray-50">
+           
+                  <td className="px-4 py-2 flex items-center space-x-2">
+                    <img
+                      src={order.image}
+                      alt={order.productName}
+                      className="w-10 h-10 object-cover rounded"
+                    />
+                    <span>{order.productName}</span>
+                  </td>
+                
+                  <td className="px-4 py-2 text-center">{order.quantity}</td>
+                  <td className="px-4 py-2 text-center">₱{order.amount}</td>
+                  <td className="px-4 py-2 text-center">{order.dateTime}</td>
+                  <td className="px-4 py-2 text-center">
+                    <button
+                      onClick={() => onView(order)}
+                      className="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 transition"
+                    >
+                      View
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
-        <div style={{ padding: '20px', backgroundColor: 'white', borderRadius: '8px', boxShadow: '0 2px 4px rgba(0,0,0,0.1)', flex: 1 }}>
-          <h3 style={{ margin: 0, color: '#888', fontSize: '14px' }}>Total Orders</h3>
-          <p style={{ fontSize: '24px', fontWeight: 'bold', margin: '10px 0 0 0' }}>{currentData.totalOrders}</p>
-        </div>
-      </div>
-
-      <OrderTable orders={currentData.ordersList} />
+      )}
     </div>
   );
 }
+

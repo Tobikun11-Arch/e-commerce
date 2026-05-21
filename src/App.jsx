@@ -3,6 +3,7 @@ import Header from "./components/layout/Header"
 import Sidebar from "./components/layout/Sidebar"
 import DashboardPage from "./components/dashboard/DashboardPage"
 import ProductsPage from "./components/products/ProductsPage"
+import OrdersPage from "./components/orders/OrderPage"
 import SettingsPage from "./components/settings/SettingsPage"
 import ProductTable from "./components/products/ProductTable"
 
@@ -20,7 +21,7 @@ export default function App() {
         <main className="flex-1 p-6">
           {activeItem === "Dashboard" && <DashboardPage />}
           {activeItem === "Products" && <ProductsPage />}
-          {activeItem === "Orders" && <div>Orders Content</div>}
+          {activeItem === "Orders" && <OrdersPage />}
           {activeItem === "Settings" && <SettingsPage />}
           {activeItem === "Products" && <ProductTable />}
         </main>
