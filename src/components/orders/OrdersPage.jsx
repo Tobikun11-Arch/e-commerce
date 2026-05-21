@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import RecentOrdersTable from './RecentOrdersTable';
+import OrderTable from './OrderTable';
 
-const DashboardPage = () => {
+const OrdersPage = () => {
   const data7Days = {
     revenue: "₱45,200",
     totalOrders: 124,
@@ -69,4 +69,4 @@ const DashboardPage = () => {
   );
 };
 
-export default DashboardPage;
+export default OrdersPage;
