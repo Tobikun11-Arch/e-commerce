@@ -1,7 +1,14 @@
+import Header from "./Header"
+import Sidebar from "./Sidebar"
+
 export default function MainLayout({ children }) {
-    return (
-        <div className="flex">
-            {children}
-        </div>
-    )
+  return (
+    <div className="min-h-screen bg-slate-50">
+      <Header />
+      <div className="pt-20 flex">
+        <Sidebar />
+        <main className="flex-1 p-6">{children}</main>
+      </div>
+    </div>
+  )
 }

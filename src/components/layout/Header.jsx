@@ -1,11 +1,9 @@
-import { useState } from "react";
 import logo from "../../assets/source-apparel.png";
 
 export default function Header() {
-const [messages, setMessages] = useState([]);
   return (
     <header className="flex items-center justify-between h-20 px-4 bg-white shadow">
-      <img src={logo} alt="Source Apparel logo" className="w-56 h-auto mt-3" />
+      <img src={logo} alt="Source Apparel logo" className="w-56 h-auto" />
 
       <div className="flex items-center gap-4">
         <button
@@ -31,12 +29,12 @@ const [messages, setMessages] = useState([]);
           </svg>
         </button>
 
-        <div className="flex items-center gap-3 rounded-2xl bg-white px-3 py-2 shadow">
+        <div className="flex items-center gap-3 rounded-2xl px-3 py-2">
           <div>
             <p className="text-sm font-semibold text-slate-900">Nung Kodak</p>
-            <p className="text-xs text-black">Seller</p>
+            <p className="text-xs text-slate-600">Seller</p>
           </div>
-          <div className="flex h-10 w-10 items-center justify-center rounded-full border-3 text-blue-600">
+          <div className="flex h-10 w-10 items-center justify-center rounded-full border text-blue-600">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
               <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
             </svg>
