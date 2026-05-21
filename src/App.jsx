@@ -2,6 +2,7 @@ import { useState } from "react"
 import Header from "./components/layout/Header"
 import Sidebar from "./components/layout/Sidebar"
 import ProductsPage from "./components/products/ProductsPage"
+import OrdersPage from "./components/orders/OrdersPage"
 
 export default function App() {
   const [activeItem, setActiveItem] = useState("Dashboard")
@@ -17,7 +18,7 @@ export default function App() {
         <main className="flex-1 p-6">
           {activeItem === "Dashboard" && <div>Dashboard Content</div>}
           {activeItem === "Products" && <ProductsPage />}
-          {activeItem === "Orders" && <div>Orders Content</div>}
+          {activeItem === "Orders" && <OrdersPage />}
           {activeItem === "Settings" && <div>Settings Content</div>}
         </main>
       </div>
