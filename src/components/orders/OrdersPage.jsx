@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import RecentOrdersTable from './OrdersTable';
+import OrderTable from './OrderTable';
 
-const OrderPage = () => {
+const OrdersPage = () => {
   const data7Days = {
     revenue: "₱45,200",
     totalOrders: 124,
@@ -36,7 +36,7 @@ const OrderPage = () => {
       <h1 style={{ color: '#333' }}>Store Overview</h1>
       <p style={{ color: '#666', marginTop: '-10px' }}>E-Commerce UI Blueprint</p>
 
-      {/* Dashboard Controls */}
+   
       <div style={{ marginBottom: '20px' }}>
         <button 
           onClick={() => handleToggleData('7days')} 
@@ -64,9 +64,9 @@ const OrderPage = () => {
         </div>
       </div>
 
-      <RecentOrdersTable orders={currentData.ordersList} />
+      <OrderTable orders={currentData.ordersList} />
     </div>
   );
 };
 
-export default OrderPage;
+export default OrdersPage;
