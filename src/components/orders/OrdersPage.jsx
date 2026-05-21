@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import RecentOrdersTable from './RecentOrdersTable';
+import RecentOrdersTable from './OrdersTable';
 
 const DashboardPage = () => {
   const data7Days = {
