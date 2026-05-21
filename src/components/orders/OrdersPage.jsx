@@ -4,7 +4,7 @@ import OrderTable from './OrderTable';
 const OrdersPage = () => {
   // Dummy data tailored for a T-Shirt Brand
   const data7Days = [
-    { id: "TEE-001", product: "Oversized K-Drama Statement Tee", customer: "Bea Alonzo", total: "₱550", status: "Shipped" },
+    { id: "TEE-001", product: "Oversized clothes Tee", customer: "Bea Alonzo", total: "₱550", status: "Shipped" },
     { id: "TEE-002", product: "Smash & Clear Badminton Dri-Fit", customer: "Juan Gomez", total: "₱450", status: "Processing" },
     { id: "TEE-003", product: "Classic INFJ Minimalist Top", customer: "Clara Santos", total: "₱600", status: "Delivered" }
   ];
