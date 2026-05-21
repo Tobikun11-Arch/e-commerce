@@ -3,7 +3,7 @@ import Header from "./components/layout/Header"
 import Sidebar from "./components/layout/Sidebar"
 import DashboardPage from "./components/dashboard/DashboardPage"
 import ProductsPage from "./components/products/ProductsPage"
-import OrdersPage from "./components/orders/OrderPage"
+import OrdersPage from "./components/orders/OrdersPage"
 import SettingsPage from "./components/settings/SettingsPage"
 import ProductTable from "./components/products/ProductTable"
 
