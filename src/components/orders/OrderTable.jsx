@@ -1,46 +1,11 @@
 import React, { useState } from "react";
-import OrderTable from "./OrderTable";
 
-const dummyOrders = [
-  {
-    productName: "Classic White T-Shirt",
-    quantity: 12,
-    amount: 899.00,
-    dateTime: "May 20, 2026 at 10:15 AM",
-    image: "/assets/tshirt-white.png",
-  },
-  {
-    productName: "Graphic Print Hoodie",
-    quantity: 7,
-    amount: 3499.00,
-    dateTime: "May 20, 2026 at 11:30 AM",
-    image: "/assets/hoodie-graphic.png",
-  },
-  {
-    productName: "Denim Jacket",
-    quantity: 5,
-    amount: 4999.00,
-    dateTime: "May 21, 2026 at 2:45 PM",
-    image: "/assets/jacket-denim.png",
-  },
-  {
-    productName: "Black Polo Shirt",
-    quantity: 9,
-    amount: 1799.00,
-    dateTime: "May 21, 2026 at 4:20 PM",
-    image: "/assets/polo-black.png",
-  },
-  {
-    productName: "Oversized Cotton Tee",
-    quantity: 15,
-    amount: 1299.00,
-    dateTime: "May 22, 2026 at 9:00 AM",
-    image: "/assets/tshirt-oversized.png",
-  },
-];
-
-export default function OrdersPage() {
+export default function OrderTable({ orders = [] }) {
   const [searchTerm, setSearchTerm] = useState("");
+
+  const filteredOrders = (orders || []).filter((order) =>
+    order.productName.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   const handleViewDetails = (order) => {
     alert(`Viewing details for: ${order.productName}`);
@@ -48,15 +13,50 @@ export default function OrdersPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 p-6">
-      <h2 className="text-xl font-bold text-gray-800 mb-6">Orders Content</h2>
-
-      <OrderTable
-        orders={dummyOrders}
-        onView={handleViewDetails}
-        searchTerm={searchTerm}
-        onSearch={setSearchTerm}
+    <div>
+      {/* Search bar */}
+      <input
+        type="text"
+        placeholder="Filter Product Name..."
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+        className="border p-2 w-full mb-4"
       />
+
+      {/* Conditional rendering */}
+      {filteredOrders.length > 0 ? (
+        <table className="w-full border-collapse border text-center">
+          <thead>
+            <tr className="bg-gray-100">
+              <th className="border p-2 text-left">Product Name</th>
+              <th className="border p-2">Quantity</th>
+              <th className="border p-2">Amount</th>
+              <th className="border p-2">Order Date & Time</th>
+              <th className="border p-2">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {filteredOrders.map((order, index) => (
+              <tr key={index} className="hover:bg-gray-50">
+                <td className="border p-2 text-left">{order.productName}</td>
+                <td className="border p-2">{order.quantity}</td>
+                <td className="border p-2">₱{order.amount}</td>
+                <td className="border p-2">{order.dateTime}</td>
+                <td className="border p-2">
+                  <button
+                    onClick={() => handleViewDetails(order)}
+                    className="bg-blue-500 text-white px-2 py-1 rounded"
+                  >
+                    View
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      ) : (
+        <p>No orders available.</p>
+      )}
     </div>
   );
 }
