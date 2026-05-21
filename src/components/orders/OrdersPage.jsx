@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import RecentOrdersTable from './RecentOrdersTable';
+import OrderTable from './OrderTable';
 
-const DashboardPage = () => {
+const OrdersPage = () => {
   const data7Days = {
     revenue: "₱45,200",
     totalOrders: 124,
@@ -16,7 +16,7 @@ const DashboardPage = () => {
     revenue: "₱180,500",
     totalOrders: 512,
     ordersList: [
-      { id: "ORD-099", product: "Smart TV 50-inch", customer: "Andres Bonifacio", total: "₱25,000", status: "Delivered" },
+      { id: "ORD-099", product: "Smart TV  50-inch", customer: "Andres Bonifacio", total: "₱25,000", status: "Delivered" },
       { id: "ORD-100", product: "Laptop Stand", customer: "Emilio Aguinaldo", total: "₱850", status: "Cancelled" },
 
     ]
@@ -36,7 +36,7 @@ const DashboardPage = () => {
       <h1 style={{ color: '#333' }}>Store Overview</h1>
       <p style={{ color: '#666', marginTop: '-10px' }}>E-Commerce UI Blueprint</p>
 
-      {/* Dashboard Controls */}
+   
       <div style={{ marginBottom: '20px' }}>
         <button 
           onClick={() => handleToggleData('7days')} 
@@ -64,9 +64,9 @@ const DashboardPage = () => {
         </div>
       </div>
 
-      <RecentOrdersTable orders={currentData.ordersList} />
+      <OrderTable orders={currentData.ordersList} />
     </div>
   );
 };
 
-export default DashboardPage;
+export default OrdersPage;
