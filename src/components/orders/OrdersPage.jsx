@@ -16,7 +16,7 @@ const OrdersPage = () => {
     revenue: "₱180,500",
     totalOrders: 512,
     ordersList: [
-      { id: "ORD-099", product: "Smart TV 50-inch", customer: "Andres Bonifacio", total: "₱25,000", status: "Delivered" },
+      { id: "ORD-099", product: "Smart TV  50-inch", customer: "Andres Bonifacio", total: "₱25,000", status: "Delivered" },
       { id: "ORD-100", product: "Laptop Stand", customer: "Emilio Aguinaldo", total: "₱850", status: "Cancelled" },
 
     ]
