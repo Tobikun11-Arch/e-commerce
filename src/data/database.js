@@ -3,29 +3,29 @@ export const stats = [
     title: "Total Income",
     value: "$4,590.59",
     note: "Compared to last month",
-    delta: "0%",
-    deltaType: "neutral",
+    delta: "80%",
+    deltaType: "positive",
   },
   {
     title: "Customers",
     value: "4",
     note: "Compared to last month",
-    delta: "0%",
-    deltaType: "neutral",
+    delta: "-2%",
+    deltaType: "negative",
   },
   {
     title: "Total Orders",
     value: "6",
     note: "Compared to last month",
-    delta: "0%",
-    deltaType: "neutral",
+    delta: "40%",
+    deltaType: "positive",
   },
   {
     title: "Total Discount",
     value: "$658",
     note: "Compared to last month",
-    delta: "0%",
-    deltaType: "neutral",
+    delta: "30%",
+    deltaType: "positive",
   },
 ]
 
@@ -53,7 +53,7 @@ export const tshirts = [
 ];
 
 export const orders = [
-    { title: "Smartphone Stand with Wireless Charger", date: "02/09/25", qty: 1, price: "$34.00", image: "src/assets/stand.png" },
-    { title: "Organic Face Serum", date: "02/07/25", qty: 1, price: "$41.40", image: "src/assets/serum.png" },
-    { title: "Wireless Bluetooth Headphones", date: "02/07/25", qty: 22, price: "$1682.81", image: "src/assets/headphones.png" },
+    { title: "Techy Tee", date: "02/09/25", qty: 1, price: "$34.00", image: "src/assets/techy-tee.png" },
+    { title: "Infinite Loop Tee", date: "02/07/25", qty: 1, price: "$41.40", image: "src/assets/infinite-loop-tee.png" },
+    { title: "CodeWear Classic", date: "02/07/25", qty: 22, price: "$1682.81", image: "src/assets/codewear-classic.png" },
   ];
