@@ -2,69 +2,60 @@ import React, { useState } from 'react';
 import OrderTable from './OrderTable';
 
 const OrdersPage = () => {
-  const data7Days = {
-    revenue: "₱45,200",
-    totalOrders: 124,
-    ordersList: [
-      { id: "ORD-001", product: "Wireless Earbuds", customer: "Juan Dela Cruz", total: "₱1,200", status: "Shipped" },
-      { id: "ORD-002", product: "Mechanical Keyboard", customer: "Maria Clara", total: "₱3,500", status: "Processing" },
-      { id: "ORD-003", product: "Gaming Mouse", customer: "Jose Rizal", total: "₱1,800", status: "Delivered" }
-    ]
-  };
+  // Dummy data tailored for a T-Shirt Brand
+  const data7Days = [
+    { id: "TEE-001", product: "Oversized K-Drama Statement Tee", customer: "Bea Alonzo", total: "₱550", status: "Shipped" },
+    { id: "TEE-002", product: "Smash & Clear Badminton Dri-Fit", customer: "Juan Gomez", total: "₱450", status: "Processing" },
+    { id: "TEE-003", product: "Classic INFJ Minimalist Top", customer: "Clara Santos", total: "₱600", status: "Delivered" }
+  ];
 
-  const data30Days = {
-    revenue: "₱180,500",
-    totalOrders: 512,
-    ordersList: [
-      { id: "ORD-099", product: "Smart TV  50-inch", customer: "Andres Bonifacio", total: "₱25,000", status: "Delivered" },
-      { id: "ORD-100", product: "Laptop Stand", customer: "Emilio Aguinaldo", total: "₱850", status: "Cancelled" },
+  const data30Days = [
+    { id: "TEE-089", product: "Vintage Daily Planet Graphic Shirt", customer: "Mark Reyes", total: "₱750", status: "Delivered" },
+    { id: "TEE-090", product: "19th Century Chess Club Hoodie", customer: "Elena Cruz", total: "₱1,200", status: "Cancelled" },
+    { id: "TEE-091", product: "Stark Industries Polo Shirt", customer: "Tony Bautista", total: "₱850", status: "Delivered" },
+    { id: "TEE-092", product: "Basic Code Logo Tee", customer: "Jose Rizal", total: "₱350", status: "Processing" }
+  ];
 
-    ]
-  };
-
+  // Requirement: useState (UI toggle for Time Range)
   const [timeRange, setTimeRange] = useState('7days');
   
+  // Requirement: Event handling
   const handleToggleData = (range) => {
     setTimeRange(range);
-    console.log(`UI Update: Switched dashboard view to ${range}`);
+    console.log(`UI Update: Switched to ${range} orders`);
   };
 
-  const currentData = timeRange === '7days' ? data7Days : data30Days;
+  const currentOrders = timeRange === '7days' ? data7Days : data30Days;
 
   return (
-    <div style={{ padding: '20px', fontFamily: 'Inter, Arial, sans-serif', backgroundColor: '#f4f7f6', minHeight: '100vh' }}>
-      <h1 style={{ color: '#333' }}>Store Overview</h1>
-      <p style={{ color: '#666', marginTop: '-10px' }}>E-Commerce UI Blueprint</p>
+    <div style={{ padding: '20px', fontFamily: 'Inter, Arial, sans-serif', backgroundColor: '#fafafa', minHeight: '100vh' }}>
+      <h1 style={{ color: '#222' }}>Shirt Orders Management</h1>
+      <p style={{ color: '#666', marginTop: '-10px' }}>UI Blueprint - Static Interface Only</p>
 
-   
+      {/* UI Toggles */}
       <div style={{ marginBottom: '20px' }}>
         <button 
           onClick={() => handleToggleData('7days')} 
-          style={{ padding: '8px 16px', marginRight: '10px', backgroundColor: timeRange === '7days' ? '#007bff' : '#ccc', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}
+          style={{ padding: '8px 16px', marginRight: '10px', backgroundColor: timeRange === '7days' ? '#333' : '#ddd', color: timeRange === '7days' ? 'white' : '#333', border: 'none', borderRadius: '4px', cursor: 'pointer' }}
         >
-          Last 7 Days
+          View Last 7 Days
         </button>
         <button 
           onClick={() => handleToggleData('30days')} 
-          style={{ padding: '8px 16px', backgroundColor: timeRange === '30days' ? '#007bff' : '#ccc', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}
+          style={{ padding: '8px 16px', marginRight: '10px', backgroundColor: timeRange === '30days' ? '#333' : '#ddd', color: timeRange === '30days' ? 'white' : '#333', border: 'none', borderRadius: '4px', cursor: 'pointer' }}
         >
-          Last 30 Days
+          View Last 30 Days
+        </button>
+        <button 
+          onClick={() => handleToggleData('empty')} 
+          style={{ padding: '8px 16px', backgroundColor: timeRange === 'empty' ? '#333' : '#ddd', color: timeRange === 'empty' ? 'white' : '#333', border: 'none', borderRadius: '4px', cursor: 'pointer' }}
+        >
+          Simulate Empty State
         </button>
       </div>
 
-      
-      <div style={{ display: 'flex', gap: '20px', marginBottom: '30px' }}>
-        <div style={{ padding: '20px', backgroundColor: 'white', borderRadius: '8px', boxShadow: '0 2px 4px rgba(0,0,0,0.1)', flex: 1 }}>
-          <h3 style={{ margin: 0, color: '#888', fontSize: '14px' }}>Total Revenue</h3>
-          <p style={{ fontSize: '24px', fontWeight: 'bold', margin: '10px 0 0 0' }}>{currentData.revenue}</p>
-        </div>
-        <div style={{ padding: '20px', backgroundColor: 'white', borderRadius: '8px', boxShadow: '0 2px 4px rgba(0,0,0,0.1)', flex: 1 }}>
-          <h3 style={{ margin: 0, color: '#888', fontSize: '14px' }}>Total Orders</h3>
-          <p style={{ fontSize: '24px', fontWeight: 'bold', margin: '10px 0 0 0' }}>{currentData.totalOrders}</p>
-        </div>
-      </div>
-
-      <OrderTable orders={currentData.ordersList} />
+      {/* Requirement: Props usage (passing dummy data) */}
+      <OrderTable orders={timeRange === 'empty' ? [] : currentOrders} />
     </div>
   );
 };
