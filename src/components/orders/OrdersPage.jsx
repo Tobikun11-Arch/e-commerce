@@ -36,7 +36,7 @@ const OrdersPage = () => {
       <h1 style={{ color: '#333' }}>Store Overview</h1>
       <p style={{ color: '#666', marginTop: '-10px' }}>E-Commerce UI Blueprint</p>
 
-      {/* Dashboard Controls */}
+   
       <div style={{ marginBottom: '20px' }}>
         <button 
           onClick={() => handleToggleData('7days')} 
@@ -64,7 +64,7 @@ const OrdersPage = () => {
         </div>
       </div>
 
-      <RecentOrdersTable orders={currentData.ordersList} />
+      <OrderTable orders={currentData.ordersList} />
     </div>
   );
 };
