@@ -3,6 +3,7 @@ import Header from "./components/layout/Header"
 import Sidebar from "./components/layout/Sidebar"
 import DashboardPage from "./components/dashboard/DashboardPage"
 import ProductsPage from "./components/products/ProductsPage"
+import OrdersPage from "./components/orders/OrdersPage"
 
 export default function App() {
   const [activeItem, setActiveItem] = useState("Dashboard")
