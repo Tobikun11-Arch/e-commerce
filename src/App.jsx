@@ -2,6 +2,8 @@ import { useState } from "react"
 import Header from "./components/layout/Header"
 import Sidebar from "./components/layout/Sidebar"
 import ProductsPage from "./components/products/ProductsPage"
+import SettingsPage from "./components/settings/SettingsPage"
+import ProductTable from "./components/products/ProductTable"
 
 export default function App() {
   const [activeItem, setActiveItem] = useState("Dashboard")
@@ -18,7 +20,8 @@ export default function App() {
           {activeItem === "Dashboard" && <div>Dashboard Content</div>}
           {activeItem === "Products" && <ProductsPage />}
           {activeItem === "Orders" && <div>Orders Content</div>}
-          {activeItem === "Settings" && <div>Settings Content</div>}
+          {activeItem === "Settings" && <SettingsPage />}
+          {activeItem === "Products" && <ProductTable />}
         </main>
       </div>
     </div>
