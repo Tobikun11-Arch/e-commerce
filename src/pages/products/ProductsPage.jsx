@@ -1,5 +1,4 @@
 import {useState} from 'react';
-import ProductCard from '../../components/products/ProductCard';
 
 const ProductPage = () => {
   const [activeTab, setActiveTab] = useState('manage');
@@ -63,7 +62,7 @@ const ProductPage = () => {
     <div className="space-y-6">
       <h2 className="text-xl font-semibold sm:text-2xl">Products</h2>
       <div className="flex flex-col gap-3 rounded-xl border border-gray-100 bg-white p-2 shadow-sm sm:flex-row sm:gap-4 sm:p-3">
-        {['add', 'manage', 'list'].map(tab => (
+        {['add', 'manage'].map(tab => (
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
@@ -73,11 +72,7 @@ const ProductPage = () => {
                 : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
             }`}
           >
-            {tab === 'add'
-              ? 'Add New Product'
-              : tab === 'manage'
-              ? 'Manage Products'
-              : 'Product List'}
+            {tab === 'add' ? 'Add New Product' : 'Manage Products'}
           </button>
         ))}
       </div>
@@ -278,12 +273,6 @@ const ProductPage = () => {
               </tbody>
             </table>
           </div>
-        </div>
-      )}
-
-      {activeTab === 'list' && (
-        <div className="rounded-xl border border-gray-100 bg-white p-4 shadow-sm sm:p-6">
-          <ProductCard />
         </div>
       )}
 
