@@ -32,28 +32,28 @@ export const stats = [
 export const tshirts = [
   {
     name: "Techy Tee",
-    image: "public/assets/techy-tee.png",
+    image: "/assets/techy-tee.png",
     sold: "1,024 Pcs",
   },
   {
     name: "CodeWear Classic",
-    image: "public/assets/codewear-classic.png",
+    image: "/assets/codewear-classic.png",
     sold: "980 Pcs",
   },
   {
     name: "Debug Mode Shirt",
-    image: "public/assets/debug-mode-shirt.png",
+    image: "/assets/debug-mode-shirt.png",
     sold: "870 Pcs",
   },
   {
     name: "Infinite Loop Tee",
-    image: "public/assets/infinite-loop-tee.png",
+    image: "/assets/infinite-loop-tee.png",
     sold: "820 Pcs",
   },
 ];
 
 export const orders = [
-    { title: "Techy Tee", date: "02/09/25", qty: 1, price: "$34.00", image: "public/assets/techy-tee.png" },
-    { title: "Infinite Loop Tee", date: "02/07/25", qty: 1, price: "$41.40", image: "public/assets/infinite-loop-tee.png" },
-    { title: "CodeWear Classic", date: "02/07/25", qty: 22, price: "$1682.81", image: "public/assets/codewear-classic.png" },
+    { title: "Techy Tee", date: "02/09/25", qty: 1, price: "$34.00", image: "/assets/techy-tee.png" },
+    { title: "Infinite Loop Tee", date: "02/07/25", qty: 1, price: "$41.40", image: "/assets/infinite-loop-tee.png" },
+    { title: "CodeWear Classic", date: "02/07/25", qty: 22, price: "$1682.81", image: "/assets/codewear-classic.png" },
   ];

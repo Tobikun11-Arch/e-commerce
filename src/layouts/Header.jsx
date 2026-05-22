@@ -1,4 +1,4 @@
-import logo from '../../public/assets/source-apparel.png';
+import logo from "/assets/source-apparel.png";
 
 export default function Header({onMenuClick}) {
   return (
