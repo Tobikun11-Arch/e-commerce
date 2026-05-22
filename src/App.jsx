@@ -1,14 +1,13 @@
-import { useState } from "react"
-import Header from "./components/layout/Header"
-import Sidebar from "./components/layout/Sidebar"
-import DashboardPage from "./components/dashboard/DashboardPage"
-import ProductsPage from "./components/products/ProductsPage"
-import OrdersPage from "./components/orders/OrdersPage"
-import SettingsPage from "./components/settings/SettingsPage"
-import ProductTable from "./components/products/ProductTable"
+import {useState} from 'react';
+import Header from './layouts/Header';
+import Sidebar from './layouts/Sidebar';
+import DashboardPage from './pages/dashboard/DashboardPage';
+import ProductsPage from './pages/products/ProductsPage';
+import OrdersPage from './pages/orders/OrdersPage';
+import SettingsPage from './pages/settings/SettingsPage';
 
 export default function App() {
-  const [activeItem, setActiveItem] = useState("Dashboard")
+  const [activeItem, setActiveItem] = useState('Dashboard');
 
   return (
     <div className="min-h-screen bg-slate-50">
@@ -19,13 +18,12 @@ export default function App() {
       <div className="pt-20 flex">
         <Sidebar activeItem={activeItem} setActiveItem={setActiveItem} />
         <main className="flex-1 p-6">
-          {activeItem === "Dashboard" && <DashboardPage />}
-          {activeItem === "Products" && <ProductsPage />}
-          {activeItem === "Orders" && <OrdersPage />}
-          {activeItem === "Settings" && <SettingsPage />}
-          {activeItem === "Products" && <ProductTable />}
+          {activeItem === 'Dashboard' && <DashboardPage />}
+          {activeItem === 'Products' && <ProductsPage />}
+          {activeItem === 'Orders' && <OrdersPage />}
+          {activeItem === 'Settings' && <SettingsPage />}
         </main>
       </div>
     </div>
-  )
+  );
 }

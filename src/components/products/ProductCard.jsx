@@ -1,66 +1,65 @@
-import React from "react";
-
 const products = [
   {
-    name: "Classic White T-Shirt",
-    price: "₱899",
-    sold: "1,024 pcs sold",
-    image: "/assets/tshirt-white.png",
+    name: 'Classic White T-Shirt',
+    price: '₱899',
+    sold: '1,024 pcs sold',
+    image: '/assets/tshirt-white.png'
   },
   {
-    name: "Graphic Print Hoodie",
-    price: "₱3,499",
-    sold: "980 pcs sold",
-    image: "/assets/hoodie-graphic.png",
+    name: 'Graphic Print Hoodie',
+    price: '₱3,499',
+    sold: '980 pcs sold',
+    image: '/assets/hoodie-graphic.png'
   },
   {
-    name: "Denim Jacket",
-    price: "₱4,999",
-    sold: "870 pcs sold",
-    image: "/assets/jacket-denim.png",
+    name: 'Denim Jacket',
+    price: '₱4,999',
+    sold: '870 pcs sold',
+    image: '/assets/jacket-denim.png'
   },
   {
-    name: "Black Polo Shirt",
-    price: "₱1,799",
-    sold: "820 pcs sold",
-    image: "/assets/polo-black.png",
+    name: 'Black Polo Shirt',
+    price: '₱1,799',
+    sold: '820 pcs sold',
+    image: '/assets/polo-black.png'
   },
 
-   {
-    name: "Maroon Polo Shirt",
-    price: "₱1,799",
-    sold: "820 pcs sold",
-    image: "/assets/polo-black.png",
+  {
+    name: 'Maroon Polo Shirt',
+    price: '₱1,799',
+    sold: '820 pcs sold',
+    image: '/assets/polo-black.png'
   },
 
-   {
-    name: "White Polo Shirt",
-    price: "₱1,799",
-    sold: "820 pcs sold",
-    image: "/assets/polo-black.png",
+  {
+    name: 'White Polo Shirt',
+    price: '₱1,799',
+    sold: '820 pcs sold',
+    image: '/assets/polo-black.png'
   },
 
-   {
-    name: "Brown Polo Shirt",
-    price: "₱1,799",
-    sold: "820 pcs sold",
-    image: "/assets/polo-black.png",
+  {
+    name: 'Brown Polo Shirt',
+    price: '₱1,799',
+    sold: '820 pcs sold',
+    image: '/assets/polo-black.png'
   },
 
-   {
-    name: "Green Polo Shirt",
-    price: "₱1,799",
-    sold: "820 pcs sold",
-    image: "/assets/polo-black.png",
-  },
+  {
+    name: 'Green Polo Shirt',
+    price: '₱1,799',
+    sold: '820 pcs sold',
+    image: '/assets/polo-black.png'
+  }
 ];
 
 export default function ProductCard() {
   return (
     <div className="p-6">
-      <h2 className="text-xl font-bold text-gray-800 mb-6">Top Selling Products</h2>
+      <h2 className="text-xl font-bold text-gray-800 mb-6">
+        Top Selling Products
+      </h2>
 
-      {/* Grid layout */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {products.map((product, index) => (
           <div
@@ -81,4 +80,3 @@ export default function ProductCard() {
     </div>
   );
 }
-

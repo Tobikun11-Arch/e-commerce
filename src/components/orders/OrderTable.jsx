@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import {useState} from 'react';
 
-export default function OrderTable({ orders = [] }) {
-  const [searchTerm, setSearchTerm] = useState("");
+export default function OrderTable({orders = []}) {
+  const [searchTerm, setSearchTerm] = useState('');
 
-  const filteredOrders = (orders || []).filter((order) =>
+  const filteredOrders = (orders || []).filter(order =>
     order.productName.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  const handleViewDetails = (order) => {
+  const handleViewDetails = order => {
     alert(`Viewing details for: ${order.productName}`);
     console.log(order);
   };
@@ -19,7 +19,7 @@ export default function OrderTable({ orders = [] }) {
         type="text"
         placeholder="Filter Product Name..."
         value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
+        onChange={e => setSearchTerm(e.target.value)}
         className="border p-2 w-full mb-4"
       />
 

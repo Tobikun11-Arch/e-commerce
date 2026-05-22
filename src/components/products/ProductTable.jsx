@@ -1,30 +1,26 @@
-import React from "react";
-
-const ProductTable = ({ type }) => {
+const ProductTable = () => {
   const products = [
     {
-      name: "Wireless Bluetooth Headphones",
-      category: "Electronics",
-      price: "$89.99",
-      discount: "15%",
+      name: 'Wireless Bluetooth Headphones',
+      category: 'Electronics',
+      price: '$89.99',
+      discount: '15%',
       stock: 178,
-      status: "published",
+      status: 'published'
     },
     {
-      name: "Smart Air Purifier",
-      category: "Home & Kitchen",
-      price: "$199.99",
-      discount: "10%",
+      name: 'Smart Air Purifier',
+      category: 'Home & Kitchen',
+      price: '$199.99',
+      discount: '10%',
       stock: 50,
-      status: "published",
-    },
+      status: 'published'
+    }
   ];
 
   return (
     <div className="bg-white shadow rounded p-6">
-      <h3 className="text-lg font-semibold mb-4">
-        {type === "manage" ? "Manage Products" : "Inventory"}
-      </h3>
+      <h3 className="text-lg font-semibold mb-4">Manage Products</h3>
 
       <div className="flex justify-between mb-4">
         <input
@@ -57,7 +53,7 @@ const ProductTable = ({ type }) => {
               <td className="border p-2">{p.discount}</td>
               <td
                 className={`border p-2 ${
-                  p.stock < 100 ? "text-red-500" : "text-gray-700"
+                  p.stock < 100 ? 'text-red-500' : 'text-gray-700'
                 }`}
               >
                 {p.stock}
