@@ -17,23 +17,19 @@ const SettingsPage = () => {
 
   const handleSave = () => {
     setShowNotif(true);
-    setTimeout(() => setShowNotif(false), 3000); // hide after 3 seconds
+    setTimeout(() => setShowNotif(false), 3000);
   };
 
   return (
-    <div
-      className="min-h-screen p-8 transition-all 'bg-gray-100 text-gray-900"
-    >
-      <div className="flex justify-between items-center mb-6">
-        <h2 className="text-2xl font-semibold">Edit Profile</h2>
+    <div className="transition-all text-gray-900">
+      <div className="mb-6 flex items-center justify-between">
+        <h2 className="text-xl font-semibold sm:text-2xl">Edit Profile</h2>
       </div>
 
-      <div
-        className="rounded-lg shadow-md p-6 bg-white"
-      >
+      <div className="rounded-lg bg-white p-4 shadow-md sm:p-6">
         <h3 className="text-lg font-medium mb-4">Personal Information</h3>
 
-        <div className="grid grid-cols-2 gap-4 mb-4">
+        <div className="mb-4 grid gap-4 md:grid-cols-2">
           {[
             {label: 'First Name', name: 'firstName'},
             {label: 'Last Name', name: 'lastName'},
@@ -56,7 +52,7 @@ const SettingsPage = () => {
           ))}
         </div>
 
-        <div className="flex justify-end gap-3">
+        <div className="flex flex-col-reverse gap-3 sm:flex-row sm:justify-end">
           <button className="px-4 py-2 rounded border border-gray-400 hover:bg-gray-200">
             Cancel
           </button>
@@ -70,9 +66,7 @@ const SettingsPage = () => {
       </div>
 
       {showNotif && (
-        <div
-          className="fixed bottom-6 right-6 px-4 py-3 rounded shadow-lg bg-green-600 text-gray-100"
-        >
+        <div className="fixed inset-x-4 bottom-4 rounded bg-green-600 px-4 py-3 text-gray-100 shadow-lg sm:inset-x-auto sm:right-6 sm:bottom-6">
           Profile saved successfully!
         </div>
       )}

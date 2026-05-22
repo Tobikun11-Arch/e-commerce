@@ -5,8 +5,8 @@ function StatCard({title, value, note, delta, deltaType}) {
     deltaType === 'positive'
       ? 'bg-emerald-100 text-emerald-700'
       : deltaType === 'negative'
-      ? 'bg-rose-100 text-rose-700'
-      : 'bg-slate-100 text-slate-700';
+        ? 'bg-rose-100 text-rose-700'
+        : 'bg-slate-100 text-slate-700';
 
   return (
     <div className="rounded-3xl bg-white p-5 shadow-md hover:shadow-md transition">
@@ -164,7 +164,6 @@ function TopSellingProducts() {
 export default function DashboardStats() {
   return (
     <div className="space-y-8">
-      {/* Stats */}
       <section className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
         {stats.map(item => (
           <StatCard key={item.title} {...item} />

@@ -13,49 +13,57 @@ export default function OrderTable({orders = []}) {
   };
 
   return (
-    <div>
-      {/* Search bar */}
+    <div className="rounded-xl border border-gray-100 bg-white p-4 shadow-sm sm:p-6">
       <input
         type="text"
         placeholder="Filter Product Name..."
         value={searchTerm}
         onChange={e => setSearchTerm(e.target.value)}
-        className="border p-2 w-full mb-4"
+        className="mb-4 w-full rounded-lg border border-gray-200 px-3 py-2 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
       />
 
-      {/* Conditional rendering */}
       {filteredOrders.length > 0 ? (
-        <table className="w-full border-collapse border text-center">
-          <thead>
-            <tr className="bg-gray-100">
-              <th className="border p-2 text-left">Product Name</th>
-              <th className="border p-2">Quantity</th>
-              <th className="border p-2">Amount</th>
-              <th className="border p-2">Order Date & Time</th>
-              <th className="border p-2">Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {filteredOrders.map((order, index) => (
-              <tr key={index} className="hover:bg-gray-50">
-                <td className="border p-2 text-left">{order.productName}</td>
-                <td className="border p-2">{order.quantity}</td>
-                <td className="border p-2">₱{order.amount}</td>
-                <td className="border p-2">{order.dateTime}</td>
-                <td className="border p-2">
-                  <button
-                    onClick={() => handleViewDetails(order)}
-                    className="bg-blue-500 text-white px-2 py-1 rounded"
-                  >
-                    View
-                  </button>
-                </td>
+        <div className="overflow-x-auto rounded-lg border border-gray-200">
+          <table className="min-w-[720px] w-full border-collapse text-sm">
+            <thead className="bg-gray-50 text-left text-gray-500">
+              <tr>
+                <th className="px-4 py-3 font-medium">Product Name</th>
+                <th className="px-4 py-3 text-center font-medium">Quantity</th>
+                <th className="px-4 py-3 text-center font-medium">Amount</th>
+                <th className="px-4 py-3 font-medium">Order Date & Time</th>
+                <th className="px-4 py-3 text-center font-medium">Action</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody className="divide-y divide-gray-100">
+              {filteredOrders.map((order, index) => (
+                <tr key={index} className="hover:bg-gray-50">
+                  <td className="px-4 py-4 font-medium text-gray-800">
+                    {order.productName}
+                  </td>
+                  <td className="px-4 py-4 text-center text-gray-600">
+                    {order.quantity}
+                  </td>
+                  <td className="px-4 py-4 text-center text-gray-800">
+                    ₱{order.amount}
+                  </td>
+                  <td className="px-4 py-4 text-gray-600">{order.dateTime}</td>
+                  <td className="px-4 py-4 text-center">
+                    <button
+                      onClick={() => handleViewDetails(order)}
+                      className="rounded-lg bg-blue-600 px-3 py-1.5 text-sm font-medium text-white transition hover:bg-blue-700"
+                    >
+                      View
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       ) : (
-        <p>No orders available.</p>
+        <p className="rounded-lg border border-gray-200 bg-gray-50 p-6 text-center text-gray-500">
+          No orders available.
+        </p>
       )}
     </div>
   );
