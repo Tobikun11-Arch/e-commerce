@@ -44,7 +44,7 @@ export default function OrderTable({orders = []}) {
                     {order.quantity}
                   </td>
                   <td className="px-4 py-4 text-center text-gray-800">
-                    ₱{order.amount}
+                    ${order.amount}
                   </td>
                   <td className="px-4 py-4 text-gray-600">{order.dateTime}</td>
                   <td className="px-4 py-4 text-center">

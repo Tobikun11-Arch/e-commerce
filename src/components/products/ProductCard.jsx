@@ -47,7 +47,7 @@ const products = [
 
   {
     name: 'Green Polo Shirt',
-    price: '$30.99$30.99',
+    price: '$30.99',
     sold: '820 pcs sold',
     image: '/assets/techy-tee.png'
   }
