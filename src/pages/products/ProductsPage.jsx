@@ -196,7 +196,7 @@ const ProductPage = () => {
         <div className="rounded-xl border border-gray-100 bg-white p-4 shadow-sm sm:p-6">
           <h3 className="text-lg font-semibold mb-4">Manage Products</h3>
           <div className="overflow-x-auto rounded-lg border border-gray-200">
-            <table className="min-w-[760px] w-full border-collapse text-sm">
+            <table className="min-w-760px w-full border-collapse text-sm">
               <thead className="bg-gray-50 text-left text-gray-500">
                 <tr>
                   <th className="px-4 py-3 font-medium">Product Name</th>

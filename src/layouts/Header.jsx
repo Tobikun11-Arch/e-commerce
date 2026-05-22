@@ -28,7 +28,7 @@ export default function Header({onMenuClick}) {
         <img
           src={logo}
           alt="Source Apparel logo"
-          className="h-auto w-24 sm:w-44 lg:w-56"
+          className="h-auto w-24 sm:w-44 lg:w-56 mt-2.5"
         />
       </div>
 
