@@ -1,23 +1,5 @@
 const ProductTable = () => {
-  const products = [
-    {
-      name: 'Wireless Bluetooth Headphones',
-      category: 'Electronics',
-      price: '$89.99',
-      discount: '15%',
-      stock: 178,
-      status: 'published'
-    },
-    {
-      name: 'Smart Air Purifier',
-      category: 'Home & Kitchen',
-      price: '$199.99',
-      discount: '10%',
-      stock: 50,
-      status: 'published'
-    }
-  ];
-
+ 
   return (
     <div className="bg-white shadow rounded p-6">
       <h3 className="text-lg font-semibold mb-4">Manage Products</h3>

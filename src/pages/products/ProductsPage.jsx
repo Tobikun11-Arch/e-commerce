@@ -10,20 +10,20 @@ const ProductPage = () => {
   const [products, setProducts] = useState([
     {
       id: 1,
-      name: 'Wireless Bluetooth Headphones',
-      category: 'Electronics',
-      price: '$89.99',
+      name: 'Graphic Print Hoodie',
+      category: 'Fashion',
+      price: '$30.99',
       discount: '15%',
       stock: 178,
       status: 'published'
     },
     {
       id: 2,
-      name: 'Smart Air Purifier',
-      category: 'Home & Kitchen',
-      price: '$199.99',
-      discount: '10%',
-      stock: 50,
+      name: 'Classic White T-Shirt',
+      category: 'Fashion',
+      price: '$30.99',
+      discount: '15%',
+      stock: 178,
       status: 'published'
     }
   ]);

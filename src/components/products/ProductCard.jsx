@@ -1,55 +1,55 @@
 const products = [
   {
     name: 'Classic White T-Shirt',
-    price: '₱899',
+    price: '$30.99',
     sold: '1,024 pcs sold',
-    image: '/assets/tshirt-white.png'
+    image: '/assets/codewear-classic.png'
   },
   {
     name: 'Graphic Print Hoodie',
-    price: '₱3,499',
+    price: '$30.99',
     sold: '980 pcs sold',
-    image: '/assets/hoodie-graphic.png'
+    image: '/assets/debug-mode-shirt.png'
   },
   {
     name: 'Denim Jacket',
-    price: '₱4,999',
+    price: '$30.99',
     sold: '870 pcs sold',
-    image: '/assets/jacket-denim.png'
+    image: '/assets/infinite-loop-tee.png'
   },
   {
     name: 'Black Polo Shirt',
-    price: '₱1,799',
+    price: '$30.99',
     sold: '820 pcs sold',
-    image: '/assets/polo-black.png'
+    image: '/assets/techy-tee.png'
   },
 
   {
     name: 'Maroon Polo Shirt',
-    price: '₱1,799',
+    price: '$30.99',
     sold: '820 pcs sold',
-    image: '/assets/polo-black.png'
+    image: '/assets/codewear-classic.png'
   },
 
   {
     name: 'White Polo Shirt',
-    price: '₱1,799',
+    price: '$30.99',
     sold: '820 pcs sold',
-    image: '/assets/polo-black.png'
+    image: '/assets/debug-mode-shirt.png'
   },
 
   {
     name: 'Brown Polo Shirt',
-    price: '₱1,799',
+    price: '$30.99',
     sold: '820 pcs sold',
-    image: '/assets/polo-black.png'
+    image: '/assets/infinite-loop-tee.png'
   },
 
   {
     name: 'Green Polo Shirt',
-    price: '₱1,799',
+    price: '$30.99$30.99',
     sold: '820 pcs sold',
-    image: '/assets/polo-black.png'
+    image: '/assets/techy-tee.png'
   }
 ];
 
